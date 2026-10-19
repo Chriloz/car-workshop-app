@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Bilvaerksted.ViewModels"
+             xmlns:models="clr-namespace:Bilvaerksted.Models"
+             x:Class="Bilvaerksted.Views.KalenderPage"
+             x:DataType="vm:KalenderViewModel"
+             Title="Kalender">
+
+    <Grid RowDefinitions="Auto,Auto,Auto,*" Padding="20" RowSpacing="5" MaximumWidthRequest="600">
+
+        <Label Grid.Row="0" Text="Vælg dato" Style="{StaticResource FeltLabel}" />
+
+        <DatePicker Grid.Row="1" Date="{Binding ValgtDato}" />
+
+        <Button Grid.Row="2" Text="Vis opgaver" Command="{Binding HentOpgaverCommand}" Style="{StaticResource GemKnap}" Margin="0,5,0,10" />
+
+        <CollectionView Grid.Row="3" ItemsSource="{Binding Opgaver}">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Opgave">
+                    <Border Style="{StaticResource Kort}">
+                        <VerticalStackLayout Spacing="2">
+                            <Label Text="{Binding Id, StringFormat='Ordre nr. {0}'}" Style="{StaticResource KortTitel}" />
+                            <Label Text="{Binding Indlevering, StringFormat='Kl. {0:HH:mm}'}" FontAttributes="Bold" />
+                            <Label Text="{Binding Navn}" />
+                            <Label Text="{Binding Bilmaerke}" />
+                            <Label Text="{Binding Model}" />
+                            <Label Text="{Binding Indregistreringsnummer}" />
+                            <Label Text="{Binding Note}" />
+                        </VerticalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+            <CollectionView.EmptyView>
+                <Label Text="Ingen opgaver denne dag" Style="{StaticResource Undertitel}" Margin="0,20" />
+            </CollectionView.EmptyView>
+
+        </CollectionView>
+    </Grid>
+</ContentPage>

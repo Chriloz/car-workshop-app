@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Bilvaerksted.ViewModels"
+             x:Class="Bilvaerksted.Views.LavFakturaPage"
+             x:DataType="vm:LavFakturaViewModel"
+             Title="Lav faktura">
+
+    <ScrollView>
+        <Border Style="{StaticResource Kort}" Margin="20" MaximumWidthRequest="600">
+            <VerticalStackLayout Spacing="5">
+
+                <Label Text="Ordrenummer" Style="{StaticResource FeltLabel}" />
+                <Entry Keyboard="Numeric" Text="{Binding OrdreNr}" />
+
+                <Label Text="Mekanikerens navn" Style="{StaticResource FeltLabel}" />
+                <Entry Placeholder="Fx Ole Jensen" Text="{Binding MekanikerNavn}" />
+
+                <Label Text="Brugte materialer" Style="{StaticResource FeltLabel}" />
+                <Editor Placeholder="Fx motorolie, oliefilter" HeightRequest="80" Text="{Binding Materialer}" />
+
+                <Label Text="Pris for materialer (kr.)" Style="{StaticResource FeltLabel}" />
+                <Entry Keyboard="Numeric" Text="{Binding MaterialePris}" />
+
+                <Label Text="Antal timer" Style="{StaticResource FeltLabel}" />
+                <Entry Keyboard="Numeric" Text="{Binding Timer}" />
+
+                <Label Text="Timepris (kr.)" Style="{StaticResource FeltLabel}" />
+                <Entry Keyboard="Numeric" Text="{Binding Timepris}" />
+
+                <Button Text="Gem faktura" Command="{Binding GemCommand}" Style="{StaticResource GemKnap}" />
+
+                <Label Text="{Binding StatusBesked}" Style="{StaticResource StatusLabel}" />
+
+            </VerticalStackLayout>
+        </Border>
+    </ScrollView>
+</ContentPage>
