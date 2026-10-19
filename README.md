@@ -12,7 +12,6 @@ A .NET MAUI desktop app for managing a car workshop. Staff can book jobs, see bo
 - **Invoice history:** Find and view previous invoices
 
 
-
 ## Built with
 - C# / .NET MAUI
 - SQLite
@@ -21,7 +20,7 @@ A .NET MAUI desktop app for managing a car workshop. Staff can book jobs, see bo
 
 **Requirements:** Windows, .NET 10 SDK, MAUI workload (`dotnet workload install maui`)
 
-1. Open the `Bilvaerksted` folder in VS Code.
+1. Open the project folder in VS Code.
 2. Press **F5** and select **Local Machine**.
 
 The database is empty on first launch. Start by booking a job to see it appear in the calendar.
